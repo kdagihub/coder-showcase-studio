@@ -25,6 +25,10 @@ const About = () => {
   const certifications = [
     "ISC2 Certified",
     "FreeCodeCamp",
+    "Udemy - Développeur Python (Django)",
+    "Cisco - network-technician-career-path",
+    "Cisco - network-support-and-security",
+    "FCF - Fortinet_Certified_Fundamentals_in_Cybersecurity",
     "Credly Badges"
   ];
 
@@ -36,8 +40,9 @@ const About = () => {
             <span className="gradient-text">À propos de moi</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Informaticien passionné, formé en Réseaux & Télécoms, je développe depuis plus de 5 ans 
-            des solutions complexes pour le gouvernement, des entreprises, et des particuliers.
+            Passionné par le code et l'innovation technologique, je suis un autodidacte, diplômé d'un BTS en Réseaux & Télécoms,
+            Après quoi j'ai passé plusieurs certifications en développement logiciels et application web, réseaux et cybersécurité. Je développe depuis plus de 5 ans maintenant 
+            des solutions complexes pour des institutions pubiques, des entreprises, et des particuliers.
           </p>
         </div>
 
