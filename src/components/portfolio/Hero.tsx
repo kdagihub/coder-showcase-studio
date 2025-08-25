@@ -9,11 +9,28 @@ const Hero = () => {
     >
       <div className="container mx-auto text-center">
         <div className="animate-float mb-8">
-          <img
-            src="/lovable-uploads/prof2-removebg-preview.png"
-            alt="KOFFI Djèclay Alexandre"
-            className="w-64 h-64 mx-auto shadow-2xl rounded-lg"
-          />
+          <picture>
+            <source 
+              media="(min-width: 1024px)" 
+              srcSet="/lovable-uploads/prof2-removebg-preview.png"
+              className="w-80 h-80"
+            />
+            <source 
+              media="(min-width: 768px)" 
+              srcSet="/lovable-uploads/prof2-removebg-preview.png"
+              className="w-64 h-64"
+            />
+            <source 
+              media="(min-width: 480px)" 
+              srcSet="/lovable-uploads/prof2-removebg-preview.png"
+              className="w-56 h-56"
+            />
+            <img
+              src="/lovable-uploads/prof2-removebg-preview.png"
+              alt="KOFFI Djèclay Alexandre"
+              className="w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 lg:w-80 lg:h-80 mx-auto shadow-2xl rounded-lg object-cover"
+            />
+          </picture>
         </div>
 
         <h1 className="text-5xl md:text-7xl font-bold mb-6">
