@@ -46,7 +46,7 @@ const Skills = () => {
     {
       icon: <Smartphone className="w-6 h-6" />,
       title: "CMS & Mobile",
-      skills: ["WordPress", "Elementor", "WooCommerce", "Divi"],
+      skills: ["WordPress", "Elementor", "WooCommerce", "Divi", "Flutter (apprentissage)"],
       color: "bg-indigo-500/10 text-indigo-400"
     },
     {

@@ -109,13 +109,49 @@ const Projects = () => {
                 </div>
 
                 <div className="flex gap-3 pt-4">
-                  <Button variant="outline" size="sm" className="flex-1">
-                    <ExternalLink className="w-4 h-4 mr-2" />
-                    Voir détails
-                  </Button>
-                  <Button variant="ghost" size="sm">
+                  {project.title === "Solutions Ministère des Sports CI" ? (
+                    <>
+                      <Button variant="outline" size="sm" asChild>
+                        <a href="https://ms-sigs.org" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+                          <ExternalLink className="w-4 h-4 mr-2" />
+                          ms-sigs.org
+                        </a>
+                      </Button>
+                      <Button variant="outline" size="sm" asChild>
+                        <a href="https://jts.ms-sigs.org" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+                          <ExternalLink className="w-4 h-4 mr-2" />
+                          jts.ms-sigs.org
+                        </a>
+                      </Button>
+                      <Button variant="ghost" size="sm" asChild>
+                        <a href="https://github.com/CIACEMS-TEAM/SIGS-v0.0" target="_blank" rel="noopener noreferrer" aria-label="GitHub SIGS">
+                          <Github className="w-4 h-4" />
+                        </a>
+                      </Button>
+                    </>
+                  ) : project.title === "Plateformes de Gestion PME" ? (
+                      <>
+                        <Button variant="outline" size="sm" asChild>
+                          <a href="https://ciacems.net" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+                            <ExternalLink className="w-4 h-4 mr-2" />
+                            ciacems.net
+                          </a>
+                        </Button>
+                        <Button variant="ghost" size="sm" asChild>
+                          <a href="https://github.com/kdagihub/Ciacems_landing_page" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                            <Github className="w-4 h-4" />
+                          </a>
+                        </Button>
+                      </>
+                  ) : (
+                    <Button variant="outline" size="sm" className="flex-1">
+                      <ExternalLink className="w-4 h-4 mr-2" />
+                      En cours...
+                    </Button>
+                  )}
+                  {/* <Button variant="ghost" size="sm">
                     <Github className="w-4 h-4" />
-                  </Button>
+                  </Button> */}
                 </div>
               </CardContent>
             </Card>
