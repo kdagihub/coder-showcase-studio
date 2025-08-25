@@ -17,7 +17,7 @@ const About = () => {
     },
     {
       icon: <Award className="w-6 h-6" />,
-      title: "Formateur & Consultant",
+      title: "Formateur",
       description: "Transmission de connaissances techniques"
     }
   ];
@@ -52,7 +52,7 @@ const About = () => {
               <CardContent className="p-8">
                 <h3 className="text-2xl font-bold mb-6 text-primary">Mon parcours</h3>
                 <p className="text-muted-foreground mb-6 leading-relaxed">
-                  Spécialisé en <strong>Django (Python)</strong> et <strong>Vue.js (JavaScript)</strong>, 
+                  Spécialisé en <strong>Django (Python)</strong> et <strong>Vue.js (TypeScript, JavaScript)</strong>, 
                   je conçois des applications web puissantes : tableaux de bord interactifs, 
                   systèmes de chat/notifications en temps réel, applications de gestion, 
                   sites vitrines...

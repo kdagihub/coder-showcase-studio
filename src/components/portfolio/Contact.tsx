@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
+import emailjs from '@emailjs/browser';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -11,32 +12,50 @@ import {
   Linkedin, 
   Github, 
   MessageCircle,
-  Send
+  Send,
+  Facebook
 } from "lucide-react";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
+    from_name: "",
+    reply_to: "",
     subject: "",
     message: ""
   });
+  const formRef = useRef<HTMLFormElement>(null);
   const { toast } = useToast();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Ici vous pourriez intégrer avec un service d'envoi d'email
-    toast({
-      title: "Message envoyé !",
-      description: "Je vous répondrai dans les plus brefs délais.",
-    });
-    setFormData({ name: "", email: "", subject: "", message: "" });
+    if (!formRef.current) return;
+    emailjs.sendForm(
+      'service_ueglrv4',
+      'template_rw03wa4',
+      formRef.current,
+      'HfRsP31KExduVOGcu'
+    )
+      .then(() => {
+        toast({
+          title: "Message envoyé !",
+          description: "Je vous répondrai dans les plus brefs délais.",
+        });
+      setFormData({ from_name: "", reply_to: "", subject: "", message: "" });
+      })
+      .catch((error) => {
+        toast({
+          title: "Erreur lors de l'envoi",
+          description: error.text || "Veuillez réessayer plus tard.",
+          variant: "destructive"
+        });
+      });
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
-      [e.target.name]: e.target.value
+      [name]: value
     }));
   };
 
@@ -63,15 +82,15 @@ const Contact = () => {
 
   const socialLinks = [
     {
-      icon: <Linkedin className="w-5 h-5" />,
-      label: "LinkedIn",
-      href: "https://www.linkedin.com/in/djèclay-alexandre-koffi-330541255",
+      icon: <Facebook className="w-5 h-5" />,
+      label: "Facebook",
+      href: "https://www.facebook.com/profile.php?id=100089321359686",
       color: "hover:text-blue-400"
     },
     {
       icon: <Github className="w-5 h-5" />,
       label: "GitHub",
-      href: "#",
+      href: "https://github.com/kdagihub",
       color: "hover:text-gray-400"
     },
     {
@@ -104,13 +123,13 @@ const Contact = () => {
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
                     <Input
-                      name="name"
+                      name="from_name"
                       placeholder="Votre nom"
-                      value={formData.name}
+                      value={formData.from_name}
                       onChange={handleChange}
                       required
                       className="bg-background/50"
@@ -118,10 +137,10 @@ const Contact = () => {
                   </div>
                   <div>
                     <Input
-                      name="email"
+                      name="reply_to"
                       type="email"
                       placeholder="Votre email"
-                      value={formData.email}
+                      value={formData.reply_to}
                       onChange={handleChange}
                       required
                       className="bg-background/50"
@@ -129,6 +148,7 @@ const Contact = () => {
                   </div>
                 </div>
                 
+                {/* Le champ 'subject' n'est pas utilisé dans le template EmailJS, il est donc retiré de l'envoi */}
                 <Input
                   name="subject"
                   placeholder="Sujet du message"
@@ -222,7 +242,7 @@ const Contact = () => {
               <CardContent className="p-6">
                 <h3 className="font-semibold mb-3 text-primary">Disponibilité</h3>
                 <p className="text-muted-foreground text-sm mb-2">
-                  🕒 Lun - Ven : 8h00 - 18h00 (GMT)
+                  🕒 Lun - Sam : 8h00 - 20h00 (GMT)
                 </p>
                 <p className="text-muted-foreground text-sm">
                   ⚡ Réponse sous 24h maximum

@@ -12,21 +12,21 @@ const Hero = () => {
           <picture>
             <source 
               media="(min-width: 1024px)" 
-              srcSet="/lovable-uploads/prof2-removebg-preview.png"
+              srcSet="/lovable-uploads/profile.png"
               className="w-80 h-80"
             />
             <source 
               media="(min-width: 768px)" 
-              srcSet="/lovable-uploads/prof2-removebg-preview.png"
+              srcSet="/lovable-uploads/profile.png"
               className="w-64 h-64"
             />
             <source 
               media="(min-width: 480px)" 
-              srcSet="/lovable-uploads/prof2-removebg-preview.png"
+              srcSet="/lovable-uploads/profile.png"
               className="w-56 h-56"
             />
             <img
-              src="/lovable-uploads/prof2-removebg-preview.png"
+              src="/lovable-uploads/profile.png"
               alt="KOFFI Djèclay Alexandre"
               className="w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 lg:w-80 lg:h-80 mx-auto shadow-2xl rounded-lg object-cover"
             />
@@ -50,9 +50,15 @@ const Hero = () => {
             </a>
           </Button>
 
-          <Button variant="outline" size="lg">
-            <Download size={20} />
-            Télécharger CV
+          <Button variant="outline" size="lg" asChild>
+            <a
+              href="/lovable-uploads/CV_ALEXANDRE_DJECLAY%20KOFFI_DEVFULLSTACK.pdf"
+              download
+              className="flex items-center gap-2"
+            >
+              <Download size={20} />
+              Télécharger CV
+            </a>
           </Button>
 
           <Button variant="secondary" size="lg">
